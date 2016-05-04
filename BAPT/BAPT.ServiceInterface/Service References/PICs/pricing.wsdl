@@ -1,0 +1,1873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://service.luis.xo.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://service.pics.xo.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" targetNamespace="http://service.pics.xo.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:ns1="http://service.luis.xo.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.pics.xo.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://service.luis.xo.com/" />
+      <xs:element name="batchCallback" type="tns:batchCallback" />
+      <xs:element name="batchCallbackResponse" type="tns:batchCallbackResponse" />
+      <xs:element name="batchInfoRequest" type="tns:batchInfoRequest" />
+      <xs:element name="batchInfoRequestWrapper" type="tns:batchInfoRequestWrapper" />
+      <xs:element name="genericQuoteRequest" type="tns:genericQuoteRequest" />
+      <xs:element name="genericQuoteRequestWrapper" type="tns:genericQuoteRequestWrapper" />
+      <xs:element name="getAllMetadata" type="tns:getAllMetadata" />
+      <xs:element name="getAllMetadataResponse" type="tns:getAllMetadataResponse" />
+      <xs:element name="getApplications" type="tns:getApplications" />
+      <xs:element name="getApplicationsResponse" type="tns:getApplicationsResponse" />
+      <xs:element name="getBatchInfo" type="tns:getBatchInfo" />
+      <xs:element name="getBatchInfoResponse" type="tns:getBatchInfoResponse" />
+      <xs:element name="getBatchPricing" type="tns:getBatchPricing" />
+      <xs:element name="getBatchPricingResponse" type="tns:getBatchPricingResponse" />
+      <xs:element name="getPortInfo" type="tns:getPortInfo" />
+      <xs:element name="getPortInfoResponse" type="tns:getPortInfoResponse" />
+      <xs:element name="getPriceLists" type="tns:getPriceLists" />
+      <xs:element name="getPriceListsResponse" type="tns:getPriceListsResponse" />
+      <xs:element name="getPricing" type="tns:getPricing" />
+      <xs:element name="getPricingResponse" type="tns:getPricingResponse" />
+      <xs:element name="getPricingResponseByToken" type="tns:getPricingResponseByToken" />
+      <xs:element name="getPricingResponseByTokenResponse" type="tns:getPricingResponseByTokenResponse" />
+      <xs:element name="getProviders" type="tns:getProviders" />
+      <xs:element name="getProvidersResponse" type="tns:getProvidersResponse" />
+      <xs:element name="getQuoteByQuoteId" type="tns:getQuoteByQuoteId" />
+      <xs:element name="getQuoteByQuoteIdResponse" type="tns:getQuoteByQuoteIdResponse" />
+      <xs:element name="getQuoteByQuoteOrLinxId" type="tns:getQuoteByQuoteOrLinxId" />
+      <xs:element name="getQuoteByQuoteOrLinxIdResponse" type="tns:getQuoteByQuoteOrLinxIdResponse" />
+      <xs:element name="getSDMs" type="tns:getSDMs" />
+      <xs:element name="getSDMsResponse" type="tns:getSDMsResponse" />
+      <xs:element name="getServices" type="tns:getServices" />
+      <xs:element name="getServicesResponse" type="tns:getServicesResponse" />
+      <xs:element name="getSfaNaptXrefs" type="tns:getSfaNaptXrefs" />
+      <xs:element name="getSfaNaptXrefsResponse" type="tns:getSfaNaptXrefsResponse" />
+      <xs:element name="getSpeeds" type="tns:getSpeeds" />
+      <xs:element name="getSpeedsResponse" type="tns:getSpeedsResponse" />
+      <xs:element name="getTerms" type="tns:getTerms" />
+      <xs:element name="getTermsResponse" type="tns:getTermsResponse" />
+      <xs:element name="metdata_response" type="tns:metadataResponseWrapper" />
+      <xs:element name="portInfo_response" type="tns:portInfoResponseWrapper" />
+      <xs:element name="pricingRequest" type="tns:pricingRequest" />
+      <xs:element name="pricingRequestSimple" type="tns:pricingRequestSimple" />
+      <xs:element name="pricingRequestSimpleResponse" type="tns:pricingRequestSimpleResponse" />
+      <xs:element name="pricingRequestWrapper" type="tns:pricingRequestWrapper" />
+      <xs:element name="pricingResponse" type="tns:pricingResponse" />
+      <xs:element name="pricingResponseWrapper" type="tns:pricingResponseWrapper" />
+      <xs:element name="quoteRequest" type="tns:quoteRequest" />
+      <xs:element name="quoteRequestWrapper" type="tns:quoteRequestWrapper" />
+      <xs:element name="quoteResponseWrapper" type="tns:quoteResponseWrapper" />
+      <xs:element name="simplePricingRequest" type="tns:simplePricingRequest" />
+      <xs:element name="simplePricingRequestWrapper" type="tns:simplePricingRequestWrapper" />
+      <xs:element name="tokenRequest" type="tns:tokenRequest" />
+      <xs:element name="tokenRequestWrapper" type="tns:tokenRequestWrapper" />
+      <xs:complexType name="getBatchPricing">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:pricingRequestWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pricingRequestWrapper">
+        <xs:sequence>
+          <xs:element name="request" type="tns:pricingRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pricingRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customerName" type="xs:string" />
+          <xs:element name="user" type="tns:user" />
+          <xs:element minOccurs="0" name="returnPort" type="xs:string" />
+          <xs:element minOccurs="0" name="returnLoop" type="xs:string" />
+          <xs:element minOccurs="0" name="filters">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="filter" type="tns:filter" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="user">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userId" type="xs:string" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="token" type="xs:string" />
+          <xs:element minOccurs="0" name="source" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="filter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="key" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+          <xs:element minOccurs="0" name="values">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="value" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getBatchPricingResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:batchResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="batchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="trackingNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="submitDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="status" type="tns:batchStatusEnum" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+          <xs:element minOccurs="0" name="batchAddresses">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="batchAddress" type="tns:batchAddressSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="error" type="tns:pricingError" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="batchAddressSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="tns:batchAddressStatusEnum" />
+          <xs:element minOccurs="0" name="token" type="xs:string" />
+          <xs:element minOccurs="0" name="aString" type="xs:string" />
+          <xs:element minOccurs="0" name="zString" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pricingError">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errorMsg" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getProviders">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getProvidersResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:metadataResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="metadataResponseWrapper">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:metadataResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="metadataResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="metadataInfo">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="metadata">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="metadataName" type="xs:string" />
+                      <xs:element minOccurs="0" name="key" type="xs:string" />
+                      <xs:element minOccurs="0" name="filterTypes">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="unbounded" name="type" nillable="true" type="xs:string" />
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                      <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" nillable="true" type="tns:attribute" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="attribute">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element minOccurs="0" name="entityId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getBatchInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:batchInfoRequestWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="batchInfoRequestWrapper">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="request" type="tns:batchInfoRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="batchInfoRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="batchId" type="xs:string" />
+          <xs:element minOccurs="0" name="user" type="tns:user" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getBatchInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:batchResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSpeeds">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getSpeedsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:metadataResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getQuoteByQuoteOrLinxId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:genericQuoteRequestWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="genericQuoteRequestWrapper">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="request" type="tns:genericQuoteRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="genericQuoteRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="quoteId" type="xs:string" />
+          <xs:element minOccurs="0" name="user" type="tns:user" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getQuoteByQuoteOrLinxIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:quoteResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="quoteResponseWrapper">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:quoteResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="quoteResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="companyName" type="xs:string" />
+          <xs:element minOccurs="0" name="locations">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="location" type="tns:location" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="quotes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="quote" type="tns:quote" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="location">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="gusaid" type="xs:string" />
+          <xs:element minOccurs="0" name="address" type="tns:address" />
+          <xs:element minOccurs="0" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="tns:attribute" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="address">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="addressType" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="country" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="street" type="xs:string" />
+          <xs:element minOccurs="0" name="zipcode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="quote">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="quoteNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="createDate" type="xs:string" />
+          <xs:element minOccurs="0" name="userName" type="xs:string" />
+          <xs:element minOccurs="0" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="tns:attribute" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="batchQuoteNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="quoteDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="elements">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="element" type="tns:element" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sfaDetails">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="sfaDetail" type="tns:sfaDetails" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="aEocIcbKeys" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="zEocIcbKeys" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="element">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="gusaid" type="xs:string" />
+          <xs:element minOccurs="0" name="loopType" type="xs:string" />
+          <xs:element minOccurs="0" name="speed" type="xs:string" />
+          <xs:element minOccurs="0" name="serviceDeliveryMethod" type="xs:string" />
+          <xs:element minOccurs="0" name="serviceType" type="xs:string" />
+          <xs:element minOccurs="0" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="tns:attribute" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="rates">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="rate" type="tns:price" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="provider" type="xs:string" />
+          <xs:element minOccurs="0" name="productInfo" type="tns:productInfo" />
+          <xs:element minOccurs="0" name="serviceDisclaimer" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="price">
+        <xs:sequence>
+          <xs:element name="mrc" type="xs:double" />
+          <xs:element name="nrc" type="xs:double" />
+          <xs:element name="term" type="xs:int" />
+          <xs:element name="mrcIcb" type="xs:boolean" />
+          <xs:element name="nrcIcb" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="productInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="providerName" type="xs:string" />
+          <xs:element name="providerId" type="xs:int" />
+          <xs:element minOccurs="0" name="productName" type="xs:string" />
+          <xs:element minOccurs="0" name="productMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="providerAttributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="providerAttribute" type="tns:attribute" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="productAttributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="productAttribute" type="tns:attribute" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sfaDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sfaService" type="ns1:sfaService" />
+          <xs:element minOccurs="0" name="networkAccessA" type="xs:string" />
+          <xs:element minOccurs="0" name="networkAccessZ" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="sfaProducts" nillable="true" type="tns:sfaProductAndSpeed" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sfaProductAndSpeed">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sfaProduct" type="ns1:sfaProduct" />
+          <xs:element minOccurs="0" name="sfaSpeed" type="ns1:sfaSpeed" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSDMs">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getSDMsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:metadataResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPricing">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:pricingRequestWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPricingResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:pricingResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pricingResponseWrapper">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:pricingResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pricingResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="notification" type="xs:string" />
+          <xs:element minOccurs="0" name="companyName" type="xs:string" />
+          <xs:element minOccurs="0" name="locations">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="location" type="tns:location" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="portPricing" type="tns:portPricing" />
+          <xs:element minOccurs="0" name="accessPricing" type="tns:accessPricing" />
+          <xs:element minOccurs="0" name="portToAccess" type="tns:portToAccess" />
+          <xs:element minOccurs="0" name="tokenId" type="xs:string" />
+          <xs:element minOccurs="0" name="responseTime" type="xs:string" />
+          <xs:element minOccurs="0" name="error" type="tns:pricingError" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="portPricing">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="service" type="xs:string" />
+          <xs:element minOccurs="0" name="serviceSpeed" type="xs:string" />
+          <xs:element minOccurs="0" name="serviceId" type="xs:string" />
+          <xs:element minOccurs="0" name="products" type="tns:product" />
+          <xs:element minOccurs="0" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="tns:attribute" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="productFeatures">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="productFeature" type="tns:productFeature" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="productFeature">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="productFeatureId" type="xs:string" />
+          <xs:element minOccurs="0" name="parentProductId" type="xs:string" />
+          <xs:element minOccurs="0" name="featureName" type="xs:string" />
+          <xs:element minOccurs="0" name="featureType" type="xs:string" />
+          <xs:element minOccurs="0" name="speed" type="xs:string" />
+          <xs:element minOccurs="0" name="rates">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="rate" type="tns:rate" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="tns:attribute" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="rate">
+        <xs:sequence>
+          <xs:element name="term" type="xs:int" />
+          <xs:element name="mrc" type="xs:double" />
+          <xs:element name="nrc" type="xs:double" />
+          <xs:element name="arc" type="xs:double" />
+          <xs:element minOccurs="0" name="hasMinPricing" type="xs:boolean" />
+          <xs:element minOccurs="0" name="min" type="tns:min" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="min">
+        <xs:sequence>
+          <xs:element name="hasMinMrc" type="xs:boolean" />
+          <xs:element name="minMrc" type="xs:double" />
+          <xs:element name="hasMinNrc" type="xs:boolean" />
+          <xs:element name="minNrc" type="xs:double" />
+          <xs:element name="hasMinArc" type="xs:boolean" />
+          <xs:element name="minArc" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="accessPricing">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="quotes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="quote" type="tns:quote" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="portToAccess">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="productReferences">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="productReference" type="tns:productReference" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="productReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="naptQuote" type="xs:string" />
+          <xs:element minOccurs="0" name="portProducts">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="portProduct" type="tns:portProduct" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="portProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="productFeatureId" type="xs:string" />
+          <xs:element minOccurs="0" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="tns:attribute" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pricingRequestSimple">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:simplePricingRequestWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="simplePricingRequestWrapper">
+        <xs:sequence>
+          <xs:element name="request" type="tns:simplePricingRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="simplePricingRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customerName" type="xs:string" />
+          <xs:element name="user" type="tns:user" />
+          <xs:element minOccurs="0" name="speed" type="xs:string" />
+          <xs:element minOccurs="0" name="product" type="xs:string" />
+          <xs:element minOccurs="0" name="accessProduct" type="xs:string" />
+          <xs:element minOccurs="0" name="returnPort" type="xs:string" />
+          <xs:element minOccurs="0" name="returnLoop" type="xs:string" />
+          <xs:element minOccurs="0" name="segment" type="xs:string" />
+          <xs:element minOccurs="0" name="addresses">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="address" type="tns:address" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pricingRequestSimpleResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:pricingResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getApplications">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getApplicationsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:metadataResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSfaNaptXrefs">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getSfaNaptXrefsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:metadataResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="batchCallback">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:int" />
+          <xs:element minOccurs="0" name="arg1" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="batchCallbackResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getQuoteByQuoteId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:quoteRequestWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="quoteRequestWrapper">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="request" type="tns:quoteRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="quoteRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="batchQuote" type="xs:string" />
+          <xs:element name="quoteId" type="xs:int" />
+          <xs:element minOccurs="0" name="user" type="tns:user" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getQuoteByQuoteIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:quoteResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getTerms">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getTermsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:metadataResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPricingResponseByToken">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:tokenRequestWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tokenRequestWrapper">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="request" type="tns:tokenRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tokenRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tokenId" type="xs:string" />
+          <xs:element minOccurs="0" name="user" type="tns:user" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPricingResponseByTokenResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:pricingResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPriceLists">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getPriceListsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:metadataResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getServices">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getServicesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:metadataResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllMetadata">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getAllMetadataResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:metadataResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPortInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPortInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:portInfoResponseWrapper" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="portInfoResponseWrapper">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="response" type="tns:portInfoResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="portInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="portInfoList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="portInfo" type="tns:portInfo" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="portInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="serviceName" type="xs:string" />
+          <xs:element minOccurs="0" name="serviceId" type="xs:string" />
+          <xs:element minOccurs="0" name="productName" type="xs:string" />
+          <xs:element minOccurs="0" name="productId" type="xs:string" />
+          <xs:element minOccurs="0" name="productType" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="batchStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Received_Queued" />
+          <xs:enumeration value="Submitted_to_Bapt" />
+          <xs:enumeration value="Submitted_to_Napt" />
+          <xs:enumeration value="Received_SubSys_Response" />
+          <xs:enumeration value="Error_Bapt" />
+          <xs:enumeration value="Error_Napt" />
+          <xs:enumeration value="Error" />
+          <xs:enumeration value="Completed" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="batchAddressStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Received" />
+          <xs:enumeration value="Location_processed" />
+          <xs:enumeration value="Port_pricing_processed" />
+          <xs:enumeration value="Processed" />
+          <xs:enumeration value="Error" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://service.luis.xo.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.luis.xo.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getAllMetaData" type="tns:getAllMetaData" />
+      <xs:element name="getAllMetaDataResponse" type="tns:getAllMetaDataResponse" />
+      <xs:element name="getLocationProviderProducts" type="tns:getLocationProviderProducts" />
+      <xs:element name="getLocationProviderProductsResponse" type="tns:getLocationProviderProductsResponse" />
+      <xs:element name="getNaptProductFromSfa" type="tns:getNaptProductFromSfa" />
+      <xs:element name="getNaptProductFromSfaResponse" type="tns:getNaptProductFromSfaResponse" />
+      <xs:element name="getProductMappingCatalog" type="tns:getProductMappingCatalog" />
+      <xs:element name="getProductMappingCatalogResponse" type="tns:getProductMappingCatalogResponse" />
+      <xs:element name="getProductsForLocationProvider" type="tns:getProductsForLocationProvider" />
+      <xs:element name="getProductsForLocationProviderResponse" type="tns:getProductsForLocationProviderResponse" />
+      <xs:element name="getProviderProductsForLocation" type="tns:getProviderProductsForLocation" />
+      <xs:element name="getProviderProductsForLocationResponse" type="tns:getProviderProductsForLocationResponse" />
+      <xs:element name="getSfaAndNaptMappings" type="tns:getSfaAndNaptMappings" />
+      <xs:element name="getSfaAndNaptMappingsByAccessProduct" type="tns:getSfaAndNaptMappingsByAccessProduct" />
+      <xs:element name="getSfaAndNaptMappingsByAccessProductResponse" type="tns:getSfaAndNaptMappingsByAccessProductResponse" />
+      <xs:element name="getSfaAndNaptMappingsResponse" type="tns:getSfaAndNaptMappingsResponse" />
+      <xs:element name="getSfaProductsFromNapt" type="tns:getSfaProductsFromNapt" />
+      <xs:element name="getSfaProductsFromNaptResponse" type="tns:getSfaProductsFromNaptResponse" />
+      <xs:complexType name="sfaService">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="serviceId" type="xs:string" />
+          <xs:element minOccurs="0" name="serviceName" type="xs:string" />
+          <xs:element minOccurs="0" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" nillable="true" type="tns:attributeValue" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="attributeValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="attribute" type="tns:attribute" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="attribute">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="attributeId" type="xs:string" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sfaProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="termId" type="xs:string" />
+          <xs:element minOccurs="0" name="termName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sfaSpeed">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="speedName" type="xs:string" />
+          <xs:element name="speedFactor" type="xs:int" />
+          <xs:element minOccurs="0" name="speedNameShort" type="xs:string" />
+          <xs:element name="speedInMbps" type="xs:int" />
+          <xs:element minOccurs="0" name="procSpeed" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="locationProvider">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="location" type="tns:location" />
+          <xs:element minOccurs="0" name="provider" type="tns:provider" />
+          <xs:element minOccurs="0" name="locProvProds">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="locProvProd" nillable="true" type="tns:locationProviderProduct" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" nillable="true" type="tns:attributeValue" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="location">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="locationValue" type="xs:string" />
+          <xs:element minOccurs="0" name="locationType" type="tns:locationType" />
+          <xs:element minOccurs="0" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" nillable="true" type="tns:attributeValue" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="locationType">
+        <xs:sequence>
+          <xs:element name="locationTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="locationTypeName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="provider">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:entityWithAttributeValues">
+            <xs:sequence>
+              <xs:element name="providerId" type="xs:int" />
+              <xs:element minOccurs="0" name="name" type="xs:string" />
+              <xs:element minOccurs="0" name="alias" type="xs:string" />
+              <xs:element minOccurs="0" name="attributes">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" nillable="true" type="tns:attributeValue" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="entityWithAttributeValues">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="application">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:entityWithAttributeValues">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="applicationId" type="xs:string" />
+              <xs:element minOccurs="0" name="applicationName" type="xs:string" />
+              <xs:element minOccurs="0" name="attributes">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" nillable="true" type="tns:attributeValue" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="locationProviderProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="product" type="tns:product" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="product">
+        <xs:sequence>
+          <xs:element name="productId" type="xs:int" />
+          <xs:element minOccurs="0" name="productName" type="xs:string" />
+          <xs:element minOccurs="0" name="productFilters">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="productFilter" nillable="true" type="tns:productFilter" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="attributes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" nillable="true" type="tns:attributeValue" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="productFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getLocationProviderProductsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="locationProviders">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="locationProvider" nillable="true" type="tns:locationProvider" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="naptCatFamSpeed">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="category" type="tns:naptCategory" />
+          <xs:element minOccurs="0" name="family" type="tns:naptFamily" />
+          <xs:element minOccurs="0" name="speed" type="tns:naptSpeed" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="naptCategory">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoryId" type="xs:string" />
+          <xs:element minOccurs="0" name="categoryName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="naptFamily">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="familyId" type="xs:string" />
+          <xs:element minOccurs="0" name="familyName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="naptSpeed">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="speedId" type="xs:string" />
+          <xs:element minOccurs="0" name="speedName" type="xs:string" />
+          <xs:element name="speedFactor" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sfaNaptXref">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="naptCatFamSpeed" type="tns:naptCatFamSpeed" />
+          <xs:element minOccurs="0" name="sfaProductServiceSpeed" type="tns:sfaProductServiceSpeed" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sfaProductServiceSpeed">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sfaProduct" type="tns:sfaProduct" />
+          <xs:element minOccurs="0" name="sfaService" type="tns:sfaService" />
+          <xs:element minOccurs="0" name="sfaSpeed" type="tns:sfaSpeed" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getLocationProviderProducts">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="gusaid" type="xs:string" />
+          <xs:element minOccurs="0" name="clli" type="xs:string" />
+          <xs:element minOccurs="0" name="netsiteId" type="xs:string" />
+          <xs:element name="providerId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="productFilter" nillable="true" type="tns:productFilter" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getNaptProductFromSfa">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:sfaOffering" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sfaOffering">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="serviceOfferingName" type="xs:string" />
+          <xs:element minOccurs="0" name="speedName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getProviderProductsForLocation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="gusaid" type="xs:string" />
+          <xs:element minOccurs="0" name="clli" type="xs:string" />
+          <xs:element minOccurs="0" name="netsiteId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="priceList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSfaAndNaptMappingsByAccessProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sfaSpeedName" type="xs:string" />
+          <xs:element minOccurs="0" name="accessProduct" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSfaAndNaptMappingsByAccessProductResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sfaNaptXrefs">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="sfaNaptXref" nillable="true" type="tns:sfaNaptXref" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getProviderProductsForLocationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="locationProviders">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="locationProvider" nillable="true" type="tns:locationProvider" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSfaProductsFromNaptResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sfaOffering" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSfaProductsFromNapt">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:naptProduct" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="naptProduct">
+        <xs:sequence>
+          <xs:element name="categoryId" type="xs:int" />
+          <xs:element name="familyId" type="xs:int" />
+          <xs:element name="speedId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllMetaDataResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:metaDataResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="metaDataResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sfaNaptXrefs">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="sfaNaptXref" nillable="true" type="tns:sfaNaptXref" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="providers">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="provider" nillable="true" type="tns:provider" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sdms">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="sdm" nillable="true" type="tns:serviceDeliveryMethod" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="terms">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="term" nillable="true" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="priceLists">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="priceList" nillable="true" type="tns:priceList" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="applications">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="application" nillable="true" type="tns:application" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="naptTechnologies">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="naptTechnology" nillable="true" type="tns:naptTechnology" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sfaServices">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="sfaService" nillable="true" type="tns:sfaService" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sfaSpeeds">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="sfaSpeed" nillable="true" type="tns:sfaSpeed" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceDeliveryMethod">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="naptTechnology">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="technologyId" type="xs:int" />
+          <xs:element minOccurs="0" name="technologyName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getNaptProductFromSfaResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:naptProduct" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getProductsForLocationProviderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="locationProviders">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="locationProvider" nillable="true" type="tns:locationProvider" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllMetaData">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getProductMappingCatalogResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sfaNaptXrefs">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="sfaNaptXref" nillable="true" type="tns:sfaNaptXref" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSfaAndNaptMappings">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sfaServiceName" type="xs:string" />
+          <xs:element minOccurs="0" name="sfaSpeedName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getProductMappingCatalog">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getSfaAndNaptMappingsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sfaNaptXrefs">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="sfaNaptXref" nillable="true" type="tns:sfaNaptXref" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getProductsForLocationProvider">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="gusaid" type="xs:string" />
+          <xs:element minOccurs="0" name="clli" type="xs:string" />
+          <xs:element minOccurs="0" name="netsiteId" type="xs:string" />
+          <xs:element name="providerId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAllMetadata">
+    <wsdl:part name="parameters" element="tns:getAllMetadata" />
+  </wsdl:message>
+  <wsdl:message name="getAllMetadataResponse">
+    <wsdl:part name="parameters" element="tns:getAllMetadataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getQuoteByQuoteId">
+    <wsdl:part name="parameters" element="tns:getQuoteByQuoteId" />
+  </wsdl:message>
+  <wsdl:message name="getQuoteByQuoteIdResponse">
+    <wsdl:part name="parameters" element="tns:getQuoteByQuoteIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPricingSimple">
+    <wsdl:part name="parameters" element="tns:pricingRequestSimple" />
+  </wsdl:message>
+  <wsdl:message name="getPricingSimpleResponse">
+    <wsdl:part name="parameters" element="tns:pricingRequestSimpleResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServices">
+    <wsdl:part name="parameters" element="tns:getServices" />
+  </wsdl:message>
+  <wsdl:message name="getServicesResponse">
+    <wsdl:part name="parameters" element="tns:getServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSfaNaptXrefs">
+    <wsdl:part name="parameters" element="tns:getSfaNaptXrefs" />
+  </wsdl:message>
+  <wsdl:message name="getSfaNaptXrefsResponse">
+    <wsdl:part name="parameters" element="tns:getSfaNaptXrefsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPortInfo">
+    <wsdl:part name="parameters" element="tns:getPortInfo" />
+  </wsdl:message>
+  <wsdl:message name="getPortInfoResponse">
+    <wsdl:part name="parameters" element="tns:getPortInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPricing">
+    <wsdl:part name="parameters" element="tns:getPricing" />
+  </wsdl:message>
+  <wsdl:message name="getPricingResponse">
+    <wsdl:part name="parameters" element="tns:getPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBatchPricing">
+    <wsdl:part name="parameters" element="tns:getBatchPricing" />
+  </wsdl:message>
+  <wsdl:message name="getBatchPricingResponse">
+    <wsdl:part name="parameters" element="tns:getBatchPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="getApplications">
+    <wsdl:part name="parameters" element="tns:getApplications" />
+  </wsdl:message>
+  <wsdl:message name="getApplicationsResponse">
+    <wsdl:part name="parameters" element="tns:getApplicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="batchCallback">
+    <wsdl:part name="parameters" element="tns:batchCallback" />
+  </wsdl:message>
+  <wsdl:message name="batchCallbackResponse">
+    <wsdl:part name="parameters" element="tns:batchCallbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTerms">
+    <wsdl:part name="parameters" element="tns:getTerms" />
+  </wsdl:message>
+  <wsdl:message name="getTermsResponse">
+    <wsdl:part name="parameters" element="tns:getTermsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getProviders">
+    <wsdl:part name="parameters" element="tns:getProviders" />
+  </wsdl:message>
+  <wsdl:message name="getProvidersResponse">
+    <wsdl:part name="parameters" element="tns:getProvidersResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSpeeds">
+    <wsdl:part name="parameters" element="tns:getSpeeds" />
+  </wsdl:message>
+  <wsdl:message name="getSpeedsResponse">
+    <wsdl:part name="parameters" element="tns:getSpeedsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBatchInfo">
+    <wsdl:part name="parameters" element="tns:getBatchInfo" />
+  </wsdl:message>
+  <wsdl:message name="getBatchInfoResponse">
+    <wsdl:part name="parameters" element="tns:getBatchInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPriceLists">
+    <wsdl:part name="parameters" element="tns:getPriceLists" />
+  </wsdl:message>
+  <wsdl:message name="getPriceListsResponse">
+    <wsdl:part name="parameters" element="tns:getPriceListsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSDMs">
+    <wsdl:part name="parameters" element="tns:getSDMs" />
+  </wsdl:message>
+  <wsdl:message name="getSDMsResponse">
+    <wsdl:part name="parameters" element="tns:getSDMsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPricingResponseByToken">
+    <wsdl:part name="parameters" element="tns:getPricingResponseByToken" />
+  </wsdl:message>
+  <wsdl:message name="getPricingResponseByTokenResponse">
+    <wsdl:part name="parameters" element="tns:getPricingResponseByTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="getQuoteByQuoteOrLinxId">
+    <wsdl:part name="parameters" element="tns:getQuoteByQuoteOrLinxId" />
+  </wsdl:message>
+  <wsdl:message name="getQuoteByQuoteOrLinxIdResponse">
+    <wsdl:part name="parameters" element="tns:getQuoteByQuoteOrLinxIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="pricingPortType">
+    <wsdl:operation name="getAllMetadata">
+      <wsdl:input message="tns:getAllMetadata" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getAllMetadataResponse" message="tns:getAllMetadataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getQuoteByQuoteId">
+      <wsdl:input message="tns:getQuoteByQuoteId" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getQuoteByQuoteIdResponse" message="tns:getQuoteByQuoteIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPricingSimple">
+      <wsdl:input message="tns:getPricingSimple" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getPricingSimpleResponse" message="tns:getPricingSimpleResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getServices">
+      <wsdl:input message="tns:getServices" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getServicesResponse" message="tns:getServicesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSfaNaptXrefs">
+      <wsdl:input message="tns:getSfaNaptXrefs" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getSfaNaptXrefsResponse" message="tns:getSfaNaptXrefsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPortInfo">
+      <wsdl:input message="tns:getPortInfo" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getPortInfoResponse" message="tns:getPortInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPricing">
+      <wsdl:input message="tns:getPricing" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getPricingResponse" message="tns:getPricingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBatchPricing">
+      <wsdl:input message="tns:getBatchPricing" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getBatchPricingResponse" message="tns:getBatchPricingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <wsdl:input message="tns:getApplications" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getApplicationsResponse" message="tns:getApplicationsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="batchCallback">
+      <wsdl:input message="tns:batchCallback" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/batchCallbackResponse" message="tns:batchCallbackResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTerms">
+      <wsdl:input message="tns:getTerms" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getTermsResponse" message="tns:getTermsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getProviders">
+      <wsdl:input message="tns:getProviders" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getProvidersResponse" message="tns:getProvidersResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSpeeds">
+      <wsdl:input message="tns:getSpeeds" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getSpeedsResponse" message="tns:getSpeedsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBatchInfo">
+      <wsdl:input message="tns:getBatchInfo" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getBatchInfoResponse" message="tns:getBatchInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPriceLists">
+      <wsdl:input message="tns:getPriceLists" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getPriceListsResponse" message="tns:getPriceListsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSDMs">
+      <wsdl:input message="tns:getSDMs" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getSDMsResponse" message="tns:getSDMsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPricingResponseByToken">
+      <wsdl:input message="tns:getPricingResponseByToken" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getPricingResponseByTokenResponse" message="tns:getPricingResponseByTokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getQuoteByQuoteOrLinxId">
+      <wsdl:input message="tns:getQuoteByQuoteOrLinxId" />
+      <wsdl:output wsaw:Action="http://service.pics.xo.com/PricingService/getQuoteByQuoteOrLinxIdResponse" message="tns:getQuoteByQuoteOrLinxIdResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="pricingSoap11Binding" type="tns:pricingPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPricingSimple">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuoteByQuoteId">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMetadata">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSfaNaptXrefs">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServices">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPortInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPricing">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatchPricing">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchCallback">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTerms">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProviders">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpeeds">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatchInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPriceLists">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSDMs">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuoteByQuoteOrLinxId">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPricingResponseByToken">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="pricingSoap12Binding" type="tns:pricingPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPricingSimple">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuoteByQuoteId">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMetadata">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSfaNaptXrefs">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServices">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPortInfo">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPricing">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatchPricing">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchCallback">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTerms">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProviders">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpeeds">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatchInfo">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPriceLists">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSDMs">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuoteByQuoteOrLinxId">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPricingResponseByToken">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="pricingHttpBinding" type="tns:pricingPortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getPricingSimple">
+      <http:operation location="getPricingSimple" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuoteByQuoteId">
+      <http:operation location="getQuoteByQuoteId" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMetadata">
+      <http:operation location="getAllMetadata" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSfaNaptXrefs">
+      <http:operation location="getSfaNaptXrefs" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServices">
+      <http:operation location="getServices" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPortInfo">
+      <http:operation location="getPortInfo" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPricing">
+      <http:operation location="getPricing" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatchPricing">
+      <http:operation location="getBatchPricing" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplications">
+      <http:operation location="getApplications" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchCallback">
+      <http:operation location="batchCallback" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTerms">
+      <http:operation location="getTerms" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProviders">
+      <http:operation location="getProviders" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpeeds">
+      <http:operation location="getSpeeds" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatchInfo">
+      <http:operation location="getBatchInfo" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPriceLists">
+      <http:operation location="getPriceLists" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSDMs">
+      <http:operation location="getSDMs" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuoteByQuoteOrLinxId">
+      <http:operation location="getQuoteByQuoteOrLinxId" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPricingResponseByToken">
+      <http:operation location="getPricingResponseByToken" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="pricing">
+    <wsdl:port name="pricingHttpSoap11Endpoint" binding="tns:pricingSoap11Binding">
+      <soap:address location="http://10.76.124.136:8280/services/pricing.pricingHttpSoap11Endpoint" />
+    </wsdl:port>
+    <wsdl:port name="pricingHttpsSoap11Endpoint" binding="tns:pricingSoap11Binding">
+      <soap:address location="https://10.76.124.136:8243/services/pricing.pricingHttpsSoap11Endpoint" />
+    </wsdl:port>
+    <wsdl:port name="pricingHttpsSoap12Endpoint" binding="tns:pricingSoap12Binding">
+      <soap12:address location="https://10.76.124.136:8243/services/pricing.pricingHttpsSoap12Endpoint" />
+    </wsdl:port>
+    <wsdl:port name="pricingHttpSoap12Endpoint" binding="tns:pricingSoap12Binding">
+      <soap12:address location="http://10.76.124.136:8280/services/pricing.pricingHttpSoap12Endpoint" />
+    </wsdl:port>
+    <wsdl:port name="pricingHttpEndpoint" binding="tns:pricingHttpBinding">
+      <http:address location="http://10.76.124.136:8280/services/pricing.pricingHttpEndpoint" />
+    </wsdl:port>
+    <wsdl:port name="pricingHttpsEndpoint" binding="tns:pricingHttpBinding">
+      <http:address location="https://10.76.124.136:8243/services/pricing.pricingHttpsEndpoint" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

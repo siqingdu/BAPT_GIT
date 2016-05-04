@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BAPTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BAPRequestDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BAPTMasterId" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Address2" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="State" Type="varchar" MaxLength="100" />
+          <Property Name="Zip" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="VendorResponse" Type="text" />
+          <Property Name="BAPTResponse" Type="text" />
+          <Property Name="DateCreated" Type="datetime" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="BAPTMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequeslInput" Type="text" />
+          <Property Name="RequestCount" Type="int" />
+          <Property Name="RequestFrom" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="DateRequestSent" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="VendorQuote" Type="varchar" MaxLength="50" />
+          <Property Name="Exception" Type="text" />
+        </EntityType>
+        <EntityType Name="BAPTRequestReady">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorQuote" Type="varchar" MaxLength="50" />
+          <Property Name="VendorQuoteResponse" Type="text" />
+          <Property Name="DateCreated" Type="datetime" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="BAPTXOPricing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoopType" Type="varchar" MaxLength="50" />
+          <Property Name="IPType" Type="varchar" MaxLength="50" />
+          <Property Name="DownLoad" Type="int" />
+          <Property Name="Upload" Type="int" />
+          <Property Name="MRC" Type="money" />
+          <Property Name="NRC" Type="money" />
+          <Property Name="Install" Type="money" />
+          <Property Name="Term" Type="int" />
+          <Property Name="PriceGroup" Type="varchar" MaxLength="50" />
+          <Property Name="Network" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BAPT.dbo.BAPTXOPricingHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BAPTXOPricingHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoopType" Type="varchar" MaxLength="50" />
+          <Property Name="IPType" Type="varchar" MaxLength="50" />
+          <Property Name="DownLoad" Type="int" />
+          <Property Name="Upload" Type="int" />
+          <Property Name="MRC" Type="money" />
+          <Property Name="NRC" Type="money" />
+          <Property Name="Install" Type="money" />
+          <Property Name="Term" Type="int" />
+          <Property Name="PriceGroup" Type="varchar" MaxLength="50" />
+          <Property Name="Network" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BAPT.dbo.Markup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Markup">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="MarkupType" />
+            <PropertyRef Name="MarkupTerm" />
+            <PropertyRef Name="MarkupPercent" />
+            <PropertyRef Name="Segement" />
+            <PropertyRef Name="CreatedDateTime" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MarkupType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MarkupTerm" Type="int" Nullable="false" />
+          <Property Name="MarkupPercent" Type="float" Nullable="false" />
+          <Property Name="Segement" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ResponseDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorQuote" Type="varchar" MaxLength="50" />
+          <Property Name="BroadbandType" Type="varchar" MaxLength="50" />
+          <Property Name="PriceGroup" Type="varchar" MaxLength="50" />
+          <Property Name="Prequal" Type="varchar" MaxLength="50" />
+          <Property Name="LocationName" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Address2" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="Zip" Type="varchar" MaxLength="50" />
+          <Property Name="BTN" Type="varchar" MaxLength="50" />
+          <Property Name="Ilec" Type="varchar" MaxLength="50" />
+          <Property Name="CableProvider" Type="varchar" MaxLength="100" />
+          <Property Name="MultiIPATT" Type="text" />
+          <Property Name="MessageComcast" Type="text" />
+          <Property Name="RecommendationsCharter" Type="text" />
+          <Property Name="ReasonCharter" Type="text" />
+          <Property Name="ServiceabilityTWC" Type="varchar" MaxLength="100" />
+          <Property Name="MessageWOW" Type="text" />
+          <Property Name="NewWaveAvailability" Type="varchar" MaxLength="100" />
+          <Property Name="MegaPathAvailability" Type="varchar" MaxLength="100" />
+          <Property Name="LoopType" Type="varchar" MaxLength="50" />
+          <Property Name="iptype" Type="varchar" MaxLength="50" />
+          <Property Name="Download" Type="varchar" MaxLength="50" />
+          <Property Name="Upload" Type="varchar" MaxLength="50" />
+          <Property Name="MRC" Type="varchar" MaxLength="50" />
+          <Property Name="NRC" Type="varchar" MaxLength="50" />
+          <Property Name="XOMRC" Type="varchar" MaxLength="50" />
+          <Property Name="XONRC" Type="varchar" MaxLength="50" />
+          <Property Name="professionalinstall" Type="varchar" MaxLength="50" />
+          <Property Name="Term" Type="varchar" MaxLength="50" />
+          <Property Name="Customer_Reference" Type="varchar" MaxLength="50" />
+          <Property Name="Network" Type="varchar" MaxLength="100" />
+          <Property Name="DateReceieved" Type="datetime" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="BAPTModelStoreContainer">
+          <EntitySet Name="BAPRequestDetails" EntityType="Self.BAPRequestDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAPTMaster" EntityType="Self.BAPTMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAPTRequestReady" EntityType="Self.BAPTRequestReady" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAPTXOPricing" EntityType="Self.BAPTXOPricing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResponseDetails" EntityType="Self.ResponseDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAPTXOPricingHistory" EntityType="Self.BAPTXOPricingHistory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BAPTXOPricingHistory].[Id] AS [Id], 
+    [BAPTXOPricingHistory].[LoopType] AS [LoopType], 
+    [BAPTXOPricingHistory].[IPType] AS [IPType], 
+    [BAPTXOPricingHistory].[DownLoad] AS [DownLoad], 
+    [BAPTXOPricingHistory].[Upload] AS [Upload], 
+    [BAPTXOPricingHistory].[MRC] AS [MRC], 
+    [BAPTXOPricingHistory].[NRC] AS [NRC], 
+    [BAPTXOPricingHistory].[Install] AS [Install], 
+    [BAPTXOPricingHistory].[Term] AS [Term], 
+    [BAPTXOPricingHistory].[PriceGroup] AS [PriceGroup], 
+    [BAPTXOPricingHistory].[Network] AS [Network], 
+    [BAPTXOPricingHistory].[DateCreated] AS [DateCreated]
+    FROM [dbo].[BAPTXOPricingHistory] AS [BAPTXOPricingHistory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Markup" EntityType="Self.Markup" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Markup].[Id] AS [Id], 
+    [Markup].[MarkupType] AS [MarkupType], 
+    [Markup].[MarkupTerm] AS [MarkupTerm], 
+    [Markup].[MarkupPercent] AS [MarkupPercent], 
+    [Markup].[Segement] AS [Segement], 
+    [Markup].[CreatedDateTime] AS [CreatedDateTime], 
+    [Markup].[UpdatedDateTime] AS [UpdatedDateTime]
+    FROM [dbo].[Markup] AS [Markup]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BAPTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BAPTMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequeslInput" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RequestCount" Type="Int32" />
+          <Property Name="RequestFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="DateRequestSent" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VendorQuote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Exception" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BAPRequestDetails" Relationship="BAPTModel.FK_BAPRequestDetails_BAPTMaster" FromRole="BAPTMaster" ToRole="BAPRequestDetail" />
+        </EntityType>
+        <EntityType Name="ResponseDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorQuote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BroadbandType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PriceGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prequal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LocationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BTN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ilec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CableProvider" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MultiIPATT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MessageComcast" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RecommendationsCharter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonCharter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceabilityTWC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MessageWOW" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NewWaveAvailability" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MegaPathAvailability" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LoopType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="iptype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Download" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Upload" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MRC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NRC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="professionalinstall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Term" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateReceieved" Type="DateTime" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="XOMRC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="XONRC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Network" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BAPTXOPricing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoopType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IPType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DownLoad" Type="Int32" />
+          <Property Name="Upload" Type="Int32" />
+          <Property Name="MRC" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NRC" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Term" Type="Int32" />
+          <Property Name="PriceGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Network" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Install" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityContainer Name="BAPTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BAPTMasters" EntityType="Self.BAPTMaster" />
+          <EntitySet Name="ResponseDetails" EntityType="Self.ResponseDetail" />
+          <EntitySet Name="BAPTXOPricings" EntityType="Self.BAPTXOPricing" />
+          <EntitySet Name="BAPRequestDetails" EntityType="BAPTModel.BAPRequestDetail" />
+          <AssociationSet Name="FK_BAPRequestDetails_BAPTMaster" Association="BAPTModel.FK_BAPRequestDetails_BAPTMaster">
+            <End Role="BAPTMaster" EntitySet="BAPTMasters" />
+            <End Role="BAPRequestDetail" EntitySet="BAPRequestDetails" />
+          </AssociationSet>
+          <EntitySet Name="BAPTRequestReadies" EntityType="BAPTModel.BAPTRequestReady" />
+          <EntitySet Name="BAPTXOPricingHistories" EntityType="BAPTModel.BAPTXOPricingHistory" />
+          <EntitySet Name="Markups" EntityType="BAPTModel.Markup" />
+        </EntityContainer>
+        <EntityType Name="BAPRequestDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BAPTMasterId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VendorResponse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BAPTResponse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="BAPTMaster" Relationship="BAPTModel.FK_BAPRequestDetails_BAPTMaster" FromRole="BAPRequestDetail" ToRole="BAPTMaster" />
+        </EntityType>
+        <Association Name="FK_BAPRequestDetails_BAPTMaster">
+          <End Type="BAPTModel.BAPTMaster" Role="BAPTMaster" Multiplicity="1" />
+          <End Type="BAPTModel.BAPRequestDetail" Role="BAPRequestDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAPTMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BAPRequestDetail">
+              <PropertyRef Name="BAPTMasterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BAPTRequestReady">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorQuote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VendorQuoteResponse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" annotation:StoreGeneratedPattern="Computed" Nullable="true" />
+        </EntityType>
+        <EntityType Name="BAPTXOPricingHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoopType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IPType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DownLoad" Type="Int32" />
+          <Property Name="Upload" Type="Int32" />
+          <Property Name="MRC" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NRC" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Term" Type="Int32" />
+          <Property Name="PriceGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Network" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="Install" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Markup">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="MarkupType" />
+            <PropertyRef Name="MarkupTerm" />
+            <PropertyRef Name="MarkupPercent" />
+            <PropertyRef Name="Segement" />
+            <PropertyRef Name="CreatedDateTime" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MarkupType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MarkupTerm" Type="Int32" Nullable="false" />
+          <Property Name="MarkupPercent" Type="Double" Nullable="false" />
+          <Property Name="Segement" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BAPTModelStoreContainer" CdmEntityContainer="BAPTEntities">
+          <EntitySetMapping Name="BAPTMasters">
+            <EntityTypeMapping TypeName="BAPTModel.BAPTMaster">
+              <MappingFragment StoreEntitySet="BAPTMaster">
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="VendorQuote" ColumnName="VendorQuote" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequeslInput" ColumnName="RequeslInput" />
+                <ScalarProperty Name="RequestCount" ColumnName="RequestCount" />
+                <ScalarProperty Name="RequestFrom" ColumnName="RequestFrom" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateRequestSent" ColumnName="DateRequestSent" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResponseDetails">
+            <EntityTypeMapping TypeName="BAPTModel.ResponseDetail">
+              <MappingFragment StoreEntitySet="ResponseDetails">
+                <ScalarProperty Name="Network" ColumnName="Network" />
+                <ScalarProperty Name="XONRC" ColumnName="XONRC" />
+                <ScalarProperty Name="XOMRC" ColumnName="XOMRC" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VendorQuote" ColumnName="VendorQuote" />
+                <ScalarProperty Name="BroadbandType" ColumnName="BroadbandType" />
+                <ScalarProperty Name="PriceGroup" ColumnName="PriceGroup" />
+                <ScalarProperty Name="Prequal" ColumnName="Prequal" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="BTN" ColumnName="BTN" />
+                <ScalarProperty Name="Ilec" ColumnName="Ilec" />
+                <ScalarProperty Name="CableProvider" ColumnName="CableProvider" />
+                <ScalarProperty Name="MultiIPATT" ColumnName="MultiIPATT" />
+                <ScalarProperty Name="MessageComcast" ColumnName="MessageComcast" />
+                <ScalarProperty Name="RecommendationsCharter" ColumnName="RecommendationsCharter" />
+                <ScalarProperty Name="ReasonCharter" ColumnName="ReasonCharter" />
+                <ScalarProperty Name="ServiceabilityTWC" ColumnName="ServiceabilityTWC" />
+                <ScalarProperty Name="MessageWOW" ColumnName="MessageWOW" />
+                <ScalarProperty Name="NewWaveAvailability" ColumnName="NewWaveAvailability" />
+                <ScalarProperty Name="MegaPathAvailability" ColumnName="MegaPathAvailability" />
+                <ScalarProperty Name="LoopType" ColumnName="LoopType" />
+                <ScalarProperty Name="iptype" ColumnName="iptype" />
+                <ScalarProperty Name="Download" ColumnName="Download" />
+                <ScalarProperty Name="Upload" ColumnName="Upload" />
+                <ScalarProperty Name="MRC" ColumnName="MRC" />
+                <ScalarProperty Name="NRC" ColumnName="NRC" />
+                <ScalarProperty Name="professionalinstall" ColumnName="professionalinstall" />
+                <ScalarProperty Name="Term" ColumnName="Term" />
+                <ScalarProperty Name="Customer_Reference" ColumnName="Customer_Reference" />
+                <ScalarProperty Name="DateReceieved" ColumnName="DateReceieved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAPTXOPricings">
+            <EntityTypeMapping TypeName="BAPTModel.BAPTXOPricing">
+              <MappingFragment StoreEntitySet="BAPTXOPricing">
+                <ScalarProperty Name="Install" ColumnName="Install" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LoopType" ColumnName="LoopType" />
+                <ScalarProperty Name="IPType" ColumnName="IPType" />
+                <ScalarProperty Name="DownLoad" ColumnName="DownLoad" />
+                <ScalarProperty Name="Upload" ColumnName="Upload" />
+                <ScalarProperty Name="MRC" ColumnName="MRC" />
+                <ScalarProperty Name="NRC" ColumnName="NRC" />
+                <ScalarProperty Name="Term" ColumnName="Term" />
+                <ScalarProperty Name="PriceGroup" ColumnName="PriceGroup" />
+                <ScalarProperty Name="Network" ColumnName="Network" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAPRequestDetails">
+            <EntityTypeMapping TypeName="BAPTModel.BAPRequestDetail">
+              <MappingFragment StoreEntitySet="BAPRequestDetails">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="BAPTResponse" ColumnName="BAPTResponse" />
+                <ScalarProperty Name="VendorResponse" ColumnName="VendorResponse" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="BAPTMasterId" ColumnName="BAPTMasterId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAPTRequestReadies">
+            <EntityTypeMapping TypeName="BAPTModel.BAPTRequestReady">
+              <MappingFragment StoreEntitySet="BAPTRequestReady">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="VendorQuoteResponse" ColumnName="VendorQuoteResponse" />
+                <ScalarProperty Name="VendorQuote" ColumnName="VendorQuote" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAPTXOPricingHistories">
+            <EntityTypeMapping TypeName="BAPTModel.BAPTXOPricingHistory">
+              <MappingFragment StoreEntitySet="BAPTXOPricingHistory">
+                <ScalarProperty Name="Install" ColumnName="Install" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Network" ColumnName="Network" />
+                <ScalarProperty Name="PriceGroup" ColumnName="PriceGroup" />
+                <ScalarProperty Name="Term" ColumnName="Term" />
+                <ScalarProperty Name="NRC" ColumnName="NRC" />
+                <ScalarProperty Name="MRC" ColumnName="MRC" />
+                <ScalarProperty Name="Upload" ColumnName="Upload" />
+                <ScalarProperty Name="DownLoad" ColumnName="DownLoad" />
+                <ScalarProperty Name="IPType" ColumnName="IPType" />
+                <ScalarProperty Name="LoopType" ColumnName="LoopType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Markups">
+            <EntityTypeMapping TypeName="BAPTModel.Markup">
+              <MappingFragment StoreEntitySet="Markup">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="Segement" ColumnName="Segement" />
+                <ScalarProperty Name="MarkupPercent" ColumnName="MarkupPercent" />
+                <ScalarProperty Name="MarkupTerm" ColumnName="MarkupTerm" />
+                <ScalarProperty Name="MarkupType" ColumnName="MarkupType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
