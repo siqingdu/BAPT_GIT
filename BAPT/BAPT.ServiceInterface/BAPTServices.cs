@@ -461,6 +461,7 @@ namespace BAPT.ServiceInterface
                 quoterequest.Zip = request.Zip;
                 quoterequest.APIKey = apiKey;
                 quoterequest.Btn = request.Phone;
+                quoterequest.APIKey = apiKey;
                 quoterequest.CustomerReference = masterId.ToString();
                 quoterequests.Add(quoterequest);
             }
