@@ -442,31 +442,34 @@ namespace BAPT.ServiceInterface
         private EntelegentResponse PostToEntelegent(List<BAPTRequest> requests, int masterId)
         {
             EntelegentResponse result = new EntelegentResponse();
-            string createquoteURL =  System.Configuration.ConfigurationSettings.AppSettings["CreateQuoteURL"] ?? "http://54.197.243.180/postapi.php";
+            string createquoteURL = System.Configuration.ConfigurationSettings.AppSettings["CreateQuoteURL"] ?? "http://54.197.243.180/api.php/quote_request";
             string apiKey = System.Configuration.ConfigurationSettings.AppSettings["ApiKey"] ?? "13QfckyVbac4-5OZd8chG+=ACv2iy*-Z_=wdAo9TC37RYV90K=~xt61j12fZ";
          
-            var client = new XmlServiceClient(createquoteURL);
+            var client = new JsonServiceClient(createquoteURL);
             List<CreateEntelegentQuoteRequest> quoterequests = new List<CreateEntelegentQuoteRequest>();
 
             foreach (BAPTRequest request in requests)
             {
                 CreateEntelegentQuoteRequest quoterequest = new CreateEntelegentQuoteRequest();
-                quoterequest.QuoteName = "";
-                quoterequest.ServiceType = "BroadBand";
-                quoterequest.LocationName = request.Location;
+                // quoterequest.QuoteName = "";
+                // quoterequest.ServiceType = "BroadBand";
+                quoterequest.Location = request.Location;
                 quoterequest.Address = request.Address;
                 quoterequest.Address2 = request.Address2;
                 quoterequest.City = request.City;
                 quoterequest.State = request.State;
                 quoterequest.Zip = request.Zip;
                 quoterequest.APIKey = apiKey;
-                quoterequest.Btn = request.Phone;
+                quoterequest.Phone = request.Phone;
                 quoterequest.APIKey = apiKey;
                 quoterequest.CustomerReference = masterId.ToString();
                 quoterequests.Add(quoterequest);
+                
             }
             try
             {
+                var quote = quoterequests.SerializeToString();
+               
                 var response = client.Post<string>("", quoterequests);
                 if (response.Length > 0)
                 {

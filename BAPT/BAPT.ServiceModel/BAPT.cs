@@ -169,15 +169,15 @@ namespace BAPT.ServiceModel
     }
     public class CreateEntelegentQuoteRequest
     {
-        public string QuoteName { get; set; }
-        public string ServiceType { get; set; }
-        public string LocationName { get; set; }
+        //public string QuoteName { get; set; }
+        //public string ServiceType { get; set; }
+        public string Location { get; set; }
         public string Address { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public string Zip { get; set; }
-        public string Btn { get; set; }
+        public string Phone { get; set; }
         public string CustomerReference { get; set; }
         public string APIKey { get; set; }
     }
